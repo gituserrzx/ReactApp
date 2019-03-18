@@ -1,14 +1,12 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
-
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
-
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
+// 此可选代码用于注册服务工作者。
+// 默认情况下不调用register（）。
+// 这使得应用程序在随后的生产访问中加载更快，并且
+// IT离线功能。然而，它也意味着开发人员（和用户）
+// 将只在以后访问某个页面时看到部署的更新，毕竟
+// 自先前缓存以来，已关闭页面上打开的现有选项卡
+// 资源在后台更新。
+// 进一步了解此模型的优点以及如何
+// 选择加入，请阅读https://bit.ly/cra-pwa
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -66,9 +64,9 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
+              // 此时，已获取更新的预缓存内容，
+                // 但以前的服务人员仍将为老年人服务
+              // 内容，直到关闭所有客户端选项卡。
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'

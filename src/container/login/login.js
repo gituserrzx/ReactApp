@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom'
 import {login} from '../../redux/user.redux'
 require('../../assets/css/index.css')
 
+
 @connect(
     state => state.user,
     {login}
@@ -22,7 +23,7 @@ class Login extends React.Component{
     register() {
         this.props.history.push('/register')
     }
-    handleChange (key, v) {
+    handleChange (key, v)  {
         this.setState({
             [key]: v
         })
@@ -31,9 +32,11 @@ class Login extends React.Component{
         this.props.login(this.state)
     }
     render() {
+        const pathname = this.props.location.pathname
+        const redirectTo = this.props.redirectTo
         return (
             <div>
-                {this.props.redirectTo ? <Redirect to={this.props.redirectTo}/> : null}
+                {redirectTo && redirectTo !== pathname ? <Redirect to={this.props.redirectTo}/> : null}
                 <Logo/>
                 <WingBlank>
                     {this.props.msg ? <div className="err-msg">{this.props.msg}</div> : ''}

@@ -16,7 +16,7 @@ class Register extends React.Component{
             user: '',
             pwd: '',
             repwd: '',
-            type: 'geniusInfo'
+            type: 'genius'
         }
     }
     handleChange (key, v) {
@@ -32,27 +32,27 @@ class Register extends React.Component{
         return (
             <div>
                 {this.props.redirectTo ? <Redirect to={this.props.redirectTo}/> : ''}
-                <Logo></Logo>
+                <Logo />
                 <WingBlank>
                     <List>
-                        {this.props.msg ? <div class="err-msg">{this.props.msg}</div> : ''}
+                        {this.props.msg ? <div className="err-msg">{this.props.msg}</div> : ''}
                         <InputItem
                         type='text'
                         onChange={v => this.handleChange('user', v)}
                         >用户名</InputItem>
-                        <WhiteSpace></WhiteSpace>
+                        <WhiteSpace />
                         <InputItem
                             type='password'
                             onChange={v => this.handleChange('pwd', v)}
                         >密码</InputItem>
-                        <WhiteSpace></WhiteSpace>
+                        <WhiteSpace />
                         <InputItem
                             type='password'
                             onChange={v => this.handleChange('repwd', v)}
                         >确认密码</InputItem>
-                        <WhiteSpace></WhiteSpace>
-                        <RadioItem checked={this.state.type==='geniusInfo'}
-                                   onClick={() => this.handleChange('type', 'geniusInfo')}
+                        <WhiteSpace />
+                        <RadioItem checked={this.state.type==='genius'}
+                                   onClick={() => this.handleChange('type', 'genius')}
                         >
                             牛人
                         </RadioItem>
@@ -61,7 +61,7 @@ class Register extends React.Component{
                         >
                             BOSS
                         </RadioItem>
-                        <WhiteSpace></WhiteSpace>
+                        <WhiteSpace />
                         <Button type='primary' onClick={this.handleRegister}>注册</Button>
                     </List>
                 </WingBlank>

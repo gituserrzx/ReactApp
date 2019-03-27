@@ -1,0 +1,18 @@
+import React from 'react'
+
+export default function seniorForm (Comp) {
+    return class WrapperComp extends React.Component {
+        constructor (props) {
+            super (props)
+            this.state = {}
+        }
+        handleChange = (key, v) => {
+            this.setState({
+                [key]: v
+            })
+        }
+        render() {
+            return <Comp {...this.props} handleChange={this.handleChange} state={this.state}/>
+        }
+    }
+}

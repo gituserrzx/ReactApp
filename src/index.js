@@ -14,27 +14,26 @@ import AuthRoute from './components/authroute'
 import BossInfo from './container/bossInfo/bossInfo'
 import GenuisInfo from './container/geniusInfo/geniusInfo'
 import DashBoard from './components/dashBoard/dashBoard'
+import Chat from './components/chat/chat'
+
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension?window.devToolsExtension():''
 ))
-function Boss () {
-        return <h1>BOSS页面</h1>
-}
 //boss genius me msg 4个页面
 ReactDOM.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
+                <AuthRoute/>
                 <Switch>
-                    <AuthRoute/>
                     <Route path={'/geniusinfo'} component={GenuisInfo}/>
                     <Route path={'/bossinfo'} component={BossInfo}/>
-                    <Route path='/boss' component={Boss}/>
                     <Route path='/login' component={Login}/>
                     <Route path='/register' component={Register}/>
+                    <Route path={'/chat/:user'} component={Chat}/>
                     <Route component={DashBoard}></Route>
-                    </Switch>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>)

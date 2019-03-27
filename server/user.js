@@ -9,11 +9,11 @@ const _filter = {
 }
 const User = model.getModel('user')
 Router.get('/list', function(req, res){
+    const {type} = req.query
     // User.remove({}, function (e,d) {
-    //
     // })
-    User.find({}, function (err, doc){
-        return res.json(doc)
+    User.find({type}, function (err, doc){
+        return res.json({code: 0, data: doc})
     })
 })
 Router.post('/register', function (req, res){
@@ -51,10 +51,9 @@ Router.post('/login', function (req, res) {
 Router.post('/update', function (req, res) {
     const userId = req.cookies.userId
     if(!userId) {
-        return json.dumps({code: 1})
+        return res.json({code: 1})
     }
     const body = req.body
-    console.log(body)
     User.findByIdAndUpdate(userId, body, function(err, doc) {
         if (err) {
             res.json({code: 1,msg: '后端出错了'})
@@ -72,7 +71,7 @@ Router.get('/info', function (req, res) {
     if(!userId) {
         return res.json({code:1})
     }
-    User.findOne({_id: userId}, function (err, data) {
+    User.findOne({_id: userId}, _filter, function (err, data) {
         if(err) {
             return res.json({code: 1, msg: '后端出错了'})
         }
